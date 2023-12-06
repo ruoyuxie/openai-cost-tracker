@@ -22,18 +22,17 @@ Turn on ```simulation``` to test the cost of a request without actually sending 
 import openai 
 from openai_cost_tracker import query_openai
 
-openai.api_key = <YOUR_OPENAI_API_KEY>
+openai.api_key = <YOUR_OPENAI_API_KEY_HERE>
 
-message = [
-    {'role': 'user', 'content': "Ned had 15 video games but 6 of them weren't working. If he wanted to sell the working games for $7 each, how much money could he earn?"}
-    ]
+prompt = "Hello World!"  # your prompt here
 
 response = query_openai(
     model="gpt-4-1106-preview",  # support gpt-4-1106-preview,  gpt-3.5-turbo-1106,  gpt-4
-    messages=message,            
+    messages=[{'role': 'user', 'content': prompt}],            
     max_tokens=5,
-    simulation=True,             # set to True to test the cost of a request without actually sending it to OpenAI 
-    print_cost=True              # set to True to print the cost of each request
+    # rest of your OpenAI params here ...
+    simulation=False,  # set to True to test the cost of a request without actually sending it to OpenAI 
+    print_cost=True   # set to True to print the cost of each request
 )     
 
 print(response["choices"][0]["message"]["content"])
@@ -42,8 +41,8 @@ print(response["choices"][0]["message"]["content"])
 
 ## Output
 ```
-Input tokens: 43 | Output tokens: 5 | Cost: $0.0006 | Total: $0.0006
-Ned started with
+Input tokens: 10 | Output tokens: 5 | Cost: $0.0003 | Total: $0.0003
+Hello! How can I
 ```
 
 
