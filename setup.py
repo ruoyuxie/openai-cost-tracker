@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
 
+with open('README.md', encoding='utf-8') as f:
+    long_description = f.read()
+
 setup(
     name='openai_cost_tracker',
-    version='0.2',
+    version='0.3',
     packages=find_packages(),
     install_requires=[
         'tiktoken==0.5.2',
@@ -11,6 +14,7 @@ setup(
     ],
     author='Roy Xie',
     author_email='royx252@gmail.com',
-    description='OpenAi Cost Tracker',
-    #url='https://github.com/royx252/openai_cost_tracker'
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    url='https://github.com/ruoyuxie/openai-cost-tracker'
 )
