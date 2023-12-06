@@ -9,9 +9,9 @@ A simple light weight wrapper for OpenAI's API that tracks the cost of each requ
 ## Usage
 Import the ```query_openai``` function from ```openai_cost_tracker```:
     
-    ```python
-    from openai_cost_tracker import query_openai
-    ```
+```python
+from openai_cost_tracker import query_openai
+```
 
 
 Use ```query_openai``` function as a drop-in replacement for openAI's completion function, such as ```openai.Completion.create()```. The ```query_openai``` will return the same response as the original function, but will also print the cost of the request. 
