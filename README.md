@@ -1,5 +1,5 @@
 # OpenAI Cost Tracker
-A light weight wrapper for OpenAI's API that tracks the cost of each request.
+A simple light weight wrapper for OpenAI's API that tracks the cost of each request. It also provides simulation mode to test the cost of a request without actually sending it to OpenAI. 
 
 
 ## Installation
@@ -7,7 +7,14 @@ A light weight wrapper for OpenAI's API that tracks the cost of each request.
 
 
 ## Usage
-Use the ```query_openai``` function as a drop-in replacement for openAI's completion functions, such as ```openai.Completion.create()```. The ```query_openai``` will return the same response as the original function, but will also print the cost of the request. 
+Import the ```query_openai``` function from ```openai_cost_tracker```:
+    
+    ```python
+    from openai_cost_tracker import query_openai
+    ```
+
+
+Use ```query_openai``` function as a drop-in replacement for openAI's completion function, such as ```openai.Completion.create()```. The ```query_openai``` will return the same response as the original function, but will also print the cost of the request. 
 
 Turn on ```simulation``` to test the cost of a request without actually sending it to OpenAI. Turn on ```print_cost``` to print the cost of each request.
 
@@ -22,11 +29,11 @@ message = [
     ]
 
 response = query_openai(
-    model="gpt-4-1106-preview",  # gpt-4-1106-preview,  gpt-3.5-turbo-1106,  gpt-4
-    messages=message, 
+    model="gpt-4-1106-preview",  # support gpt-4-1106-preview,  gpt-3.5-turbo-1106,  gpt-4
+    messages=message,            
     max_tokens=5,
-    simulation=True,
-    print_cost=True 
+    simulation=True,             # set to True to test the cost of a request without actually sending it to OpenAI 
+    print_cost=True              # set to True to print the cost of each request
 )     
 
 print(response["choices"][0]["message"]["content"])
