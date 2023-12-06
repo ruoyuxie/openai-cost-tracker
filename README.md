@@ -1,13 +1,18 @@
+# OpenAI Cost Tracker
+A light weight wrapper for OpenAI's API that tracks the cost of each request.
+
+
 ## Installation
 ```pip install openai-cost-tracker```
 
-## Usage
 
+## Usage
 Use the ```query_openai``` function as a drop-in replacement for openAI's completion functions, such as ```openai.Completion.create()```. The ```query_openai``` will return the same response as the original function, but will also print the cost of the request. 
 
 Turn on ```simulation``` to test the cost of a request without actually sending it to OpenAI. Turn on ```print_cost``` to print the cost of each request.
 
-```import openai 
+```python
+import openai 
 from openai_cost_tracker import query_openai
 
 openai.api_key = <YOUR_OPENAI_API_KEY>
@@ -27,10 +32,13 @@ response = query_openai(
 print(response["choices"][0]["message"]["content"])
 ```
 
+
 ## Output
 ```
 Input tokens: 43 | Output tokens: 5 | Cost: $0.0006 | Total: $0.0006
 Ned started with
 ```
+
+
 ## Notes
 - The cost of the request is calculated based on the number of tokens in the input and output using the OpenAI tokenization scheme. This is an approximation of the actual cost.
