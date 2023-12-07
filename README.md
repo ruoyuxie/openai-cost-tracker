@@ -3,7 +3,9 @@ A simple light weight wrapper for OpenAI's API that tracks the cost of each requ
 
 
 ## Installation
-```pip install openai-cost-tracker```
+```python
+pip install openai-cost-tracker
+```
 
 
 ## Usage
@@ -22,7 +24,7 @@ Turn on ```simulation``` to test the cost of a request without actually sending 
 import openai 
 from openai_cost_tracker import query_openai
 
-openai.api_key = <YOUR_OPENAI_API_KEY_HERE>
+openai.api_key = "<YOUR_OPENAI_API_KEY_HERE>"
 
 prompt = "Hello World!"  # your prompt here
 
@@ -31,7 +33,7 @@ response = query_openai(
     messages=[{'role': 'user', 'content': prompt}],            
     max_tokens=5,
     # rest of your OpenAI params here ...
-    simulation=False,  # set to True to test the cost of a request without actually sending it to OpenAI 
+    simulation=True,  # set to True to test the cost of a request without actually sending it to OpenAI 
     print_cost=True   # set to True to print the cost of each request
 )     
 
