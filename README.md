@@ -29,7 +29,7 @@ openai.api_key = "<YOUR_OPENAI_API_KEY_HERE>"
 prompt = "Hello World!"  # your prompt here
 
 response = query_openai(
-    model="gpt-4-1106-preview",  # support gpt-4-1106-preview,  gpt-3.5-turbo-1106,  gpt-4
+    model="gpt-4-0125-preview",  # support gpt-4-0125-preview,  gpt-3.5-turbo-1106,  gpt-4
     messages=[{'role': 'user', 'content': prompt}],            
     max_tokens=5,
     # rest of your OpenAI params here ...
