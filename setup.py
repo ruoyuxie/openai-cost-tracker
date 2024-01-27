@@ -5,7 +5,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='openai_cost_tracker',
-    version='0.3',
+    version='0.4',
     packages=find_packages(),
     install_requires=[
         'tiktoken==0.5.2',
