@@ -49,4 +49,6 @@ Hello! How can I
 
 
 ## Notes
-- The cost of the request is calculated based on the number of tokens in the input and output using the OpenAI tokenization scheme. This is an approximation of the actual cost.
+- Under the simulation model, the cost of request is calculated based on given `max_tokens` and number of input tokens using the [OpenAI tokenization scheme](https://github.com/openai/tiktoken). This is an approximation of the upper bond of the actual cost.
+- The code is mainly implemented for GPT-3.5 and GPT-4 models, but it will work for other openAI models by customizing the `utils.py` and `estimator.py` files. Feel free to open an issue or PR if you need help with that.
+- The implementation is based on this [repo](https://github.com/michaelachmann/gpt-cost-estimator).
